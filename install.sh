@@ -26,7 +26,7 @@ mkdir -p "$BIN_DIR" "$APPS"
 install -m 755 "$ROOT/target/release/ubuntu-app-control" "$BIN"
 
 if ! python3 "$ROOT/tools/render_icons.py" "$ROOT/data/$APP_ID.svg" "$ICONS" >/dev/null; then
-  echo "warning: could not render icons (install python3-gi and gir1.2-gdkpixbuf-2.0)" >&2
+  echo "warning: could not render icons (install python3-gi, gir1.2-gdkpixbuf-2.0 and librsvg2-common)" >&2
 fi
 
 cat > "$APPS/$APP_ID.desktop" <<EOF

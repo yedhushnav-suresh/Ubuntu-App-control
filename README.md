@@ -13,6 +13,9 @@ variables first.
 > Ubuntu App Control is an independent project and is not affiliated with
 > Canonical.
 
+Ubuntu App Control is created and maintained by
+[Yedhushnav Suresh](https://github.com/yedhushnav-suresh).
+
 ## Features
 
 - **A user-focused app list.** Shows Snap, AppImage and desktop-package entries
@@ -53,14 +56,27 @@ Build:
 
 - Rust 1.85+ (`rustc`, `cargo`)
 - GTK4 development headers (`libgtk-4-dev`, `pkg-config`, `build-essential`)
-- Python 3 + PyGObject + GdkPixbuf for icon rendering
-  (`python3-gi`, `gir1.2-gdkpixbuf-2.0`)
+- Python 3 + PyGObject + GdkPixbuf + librsvg for icon rendering
+  (`python3-gi`, `gir1.2-gdkpixbuf-2.0`, `librsvg2-common`)
+
+Python is only used by the packaging/icon-rendering script; the application
+itself is Rust.
 
 On Ubuntu:
 
 ```bash
 sudo apt install build-essential pkg-config libgtk-4-dev \
-  python3-gi gir1.2-gdkpixbuf-2.0
+  python3-gi gir1.2-gdkpixbuf-2.0 librsvg2-common
+```
+
+## Download
+
+Download the latest `.deb` from the
+[Releases page](https://github.com/yedhushnav-suresh/Ubuntu-App-control/releases/latest),
+then install it:
+
+```bash
+sudo apt install ./ubuntu-app-control_*_amd64.deb
 ```
 
 ## Install for the current user
@@ -82,12 +98,9 @@ you want to start it from a terminal.
 sudo apt install ./dist/ubuntu-app-control_*_amd64.deb
 ```
 
-Set `VERSION` and `MAINTAINER` to override the values read from `Cargo.toml`
-and the local-build default:
-
-```bash
-VERSION=2.0.1 MAINTAINER="Your Name <you@example.com>" ./build-deb.sh
-```
+The package version is read from `Cargo.toml` (currently `2.0.0`). The
+maintainer is set in `build-deb.sh`. Pushing a `v*` tag makes GitHub Actions
+build the `.deb` and attach it to the release.
 
 ## Usage
 
@@ -164,11 +177,10 @@ data/                           application icon (SVG)
 tools/render_icons.py           renders hicolor PNG/SVG icon sizes
 install.sh / uninstall.sh       per-user install and removal
 build-deb.sh                    Debian package builder
-legacy/python-prototype/        unmaintained 1.x Python/GTK prototype
+.github/                        CI and release automation
 ```
 
-The Python prototype is kept for reference only. The packaged and supported
-application is the Rust implementation in `src/`.
+The application is implemented entirely in Rust under `src/`.
 
 ## Development
 
@@ -182,16 +194,7 @@ The tests cover desktop-entry quoting, version parsing, package/Snap name
 validation, quarantine ID validation, nested-target selection, and preference
 compatibility.
 
-Run the Python prototype's old checks only if you are working on the legacy
-tree:
-
-```bash
-cd legacy/python-prototype
-python3 tests/verify.py
-```
-
-Those checks write fixtures into the real home directory and clean them up
-afterwards.
+GitHub Actions runs the same tests and builds the `.deb` on every push.
 
 ## Uninstall
 
@@ -213,6 +216,10 @@ Bug reports and pull requests are welcome. Please include your Ubuntu version,
 desktop environment, whether the app came from Snap/AppImage/deb, and the output
 of `ubuntu-app-control --scan-report`. Do not include secrets or personal paths
 in reports.
+
+## Maintainer
+
+Yedhushnav Suresh · [GitHub](https://github.com/yedhushnav-suresh)
 
 ## License
 

@@ -3,16 +3,13 @@
 #
 #   ./build-deb.sh            -> dist/ubuntu-app-control_<version>_<arch>.deb
 #   sudo apt install ./dist/ubuntu-app-control_*.deb
-#
-# Override the package version or maintainer when preparing a release:
-#   VERSION=2.0.1 MAINTAINER="You <you@example.com>" ./build-deb.sh
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PACKAGE=ubuntu-app-control
 APP_ID=com.local.UbuntuAppControl
 VERSION="${VERSION:-$(sed -n 's/^version *= *"\(.*\)"/\1/p' "$ROOT/Cargo.toml" | head -n1)}"
-MAINTAINER="${MAINTAINER:-Local Build <local@localhost>}"
+MAINTAINER="${MAINTAINER:-Yedhushnav Suresh <yedhushnav1@gmail.com>}"
 STAGE="$ROOT/build/deb"
 DIST="$ROOT/dist"
 

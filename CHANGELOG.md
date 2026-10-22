@@ -8,8 +8,7 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 
-- GTK4/Rust rewrite of the application (the Python/GTK 1.x prototype is kept
-  under `legacy/` for reference).
+- GTK4/Rust application.
 - Search across app name, source, binary, version, publisher and paths.
 - Per-row GPU badge and cache/data sizes, plus a summary of visible apps and
   total personal data.
@@ -41,7 +40,7 @@ All notable changes to this project are documented here. The format follows
 - GPU reset restores an in-place user launcher instead of deleting it, and
   preserves other desktop groups.
 - Repository layout is a standard root-level Cargo project; packaging and docs
-  live in `packaging/`, the prototype in `legacy/`.
+  live in `packaging/`.
 - Uninstall script now removes the installed binary and app-created GPU
   launchers.
 
@@ -54,8 +53,6 @@ All notable changes to this project are documented here. The format follows
 - Applying a GPU override twice added duplicate `env` prefixes, and resetting a
   user-owned launcher could delete that launcher.
 - Restoring partially failed batches left inflated size metadata.
-- The legacy test suite hard-coded a developer's home path and asserted that the
-  entire quarantine was empty.
 - Uninstall could remove an unrelated package when ownership was ambiguous.
 
 ### Security
@@ -65,8 +62,3 @@ All notable changes to this project are documented here. The format follows
   restore sources/destinations.
 - Resolve privileged binaries only from root-owned system directories.
 - Refuse to overwrite symlinked desktop launchers.
-
-## [1.0.0] - 2026-10-20
-
-- Initial Python/GTK prototype with app scanning, cache/data clearing, package
-  removal and GPU launcher overrides.

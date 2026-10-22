@@ -4,8 +4,7 @@
 
 | Version | Supported |
 | --- | --- |
-| 2.x (Rust) | Yes |
-| 1.x (Python prototype, `legacy/`) | No |
+| 2.x | Yes |
 
 ## Reporting a vulnerability
 
@@ -18,8 +17,9 @@ report to the maintainers with:
 - any suggested fix.
 
 If the repository has GitHub private vulnerability reporting enabled, use the
-**Security → Report a vulnerability** button. Otherwise contact the maintainer
-listed in `Cargo.toml` / the repository profile.
+**Security → Report a vulnerability** button. Otherwise contact the maintainer:
+
+Yedhushnav Suresh <yedhushnav1@gmail.com>
 
 You can expect an acknowledgement within a few days. Please allow time for a
 fix and a coordinated release before disclosing the issue publicly.

@@ -6,7 +6,8 @@ rust-version = "1.85"
 description = "Review installed apps, clear their cache or data safely, and choose which GPU launches them"
 license = "MIT"
 readme = "README.md"
-authors = ["Ubuntu App Control contributors"]
+repository = "https://github.com/yedhushnav-suresh/Ubuntu-App-control"
+authors = ["Yedhushnav Suresh <yedhushnav1@gmail.com>"]
 keywords = ["gtk4", "ubuntu", "appimage", "snap", "desktop"]
 categories = ["gui", "system"]
 
