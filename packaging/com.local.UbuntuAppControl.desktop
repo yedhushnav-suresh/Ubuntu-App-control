@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Ubuntu App Control
+GenericName=Application manager
+Comment=Clear app cache and data, uninstall apps, choose which GPU launches them
+Icon=com.local.UbuntuAppControl
+Exec=ubuntu-app-control
+Terminal=false
+Categories=System;GTK;
+Keywords=app;apps;uninstall;remove;cache;data;snap;appimage;deb;gpu;prime;nvidia;
+StartupWMClass=com.local.UbuntuAppControl
+StartupNotify=true

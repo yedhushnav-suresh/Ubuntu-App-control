@@ -1,0 +1,23 @@
+# Build output
+/target/
+/build/
+/dist/
+*.deb
+*.AppImage
+
+# Local tool state
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor / OS noise
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# Local preferences, quarantine data and generated launchers
+.ubuntu-app-control/
+prefs.json

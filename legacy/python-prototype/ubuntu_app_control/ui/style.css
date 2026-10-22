@@ -1,0 +1,55 @@
+.app-row-size {
+  font-feature-settings: "tnum";
+  opacity: 0.85;
+}
+
+.app-row-gpu {
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background-color: alpha(@accent_bg_color, 0.14);
+  color: @accent_fg_color;
+}
+
+.running-dot {
+  min-width: 10px;
+  min-height: 10px;
+  border-radius: 999px;
+  background-color: #2ec27e;
+}
+
+.idle-dot {
+  min-width: 10px;
+  min-height: 10px;
+  border-radius: 999px;
+  background-color: alpha(@window_fg_color, 0.22);
+}
+
+.detail-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.detail-subtitle {
+  opacity: 0.72;
+}
+
+.path-label {
+  font-family: monospace;
+  font-size: 0.85em;
+}
+
+.freed-banner {
+  padding: 6px 12px;
+  border-radius: 12px;
+  background-color: alpha(#2ec27e, 0.16);
+}
+
+.muted {
+  opacity: 0.65;
+}
+
+sidebar-list {
+  background-color: alpha(@card_bg_color, 0.35);
+}

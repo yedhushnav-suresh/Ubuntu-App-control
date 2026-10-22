@@ -1,0 +1,63 @@
+.\" Manpage for ubuntu-app-control
+.TH UBUNTU-APP-CONTROL 1 "2026-10-22" "2.0.0" "User Commands"
+.SH NAME
+ubuntu-app-control \- review installed apps, clear their data, and choose a GPU
+.SH SYNOPSIS
+.B ubuntu-app-control
+.RI [ --version ]
+.br
+.B ubuntu-app-control
+.B --scan-report
+.RI [ --scan-details ]
+.SH DESCRIPTION
+.B ubuntu-app-control
+lists the applications available to the current user (Snaps, AppImages and
+desktop packages) rather than the entire package list. For each app it reports
+how much cache and personal data it owns and offers to:
+.IP \(bu 2
+empty cache folders in place, which frees disk space immediately;
+.IP \(bu 2
+move app data and settings into a restorable area instead of deleting them;
+.IP \(bu 2
+uninstall the app with PackageKit/polkit or move an AppImage to the Trash;
+.IP \(bu 2
+pin which graphics card launches an app by writing a per-user desktop entry.
+.PP
+Cleared data is stored under
+.IR ~/.local/share/ubuntu-app-control/quarantine .
+Use the
+.B "Restore or delete data"
+window to put it back or delete it permanently.
+.SH OPTIONS
+.TP
+.B --version
+Print the program version and exit.
+.TP
+.B --scan-report
+Print a text summary of the app scan without opening a window.
+.TP
+.B --scan-details
+With
+.BR --scan-report ,
+print one line per discovered entry.
+.SH FILES
+.TP
+.I ~/.config/ubuntu-app-control/prefs.json
+GPU choices and the quarantine manifest.
+.TP
+.I ~/.local/share/ubuntu-app-control/quarantine
+App data waiting to be restored or deleted.
+.TP
+.I ~/.local/share/applications
+Per-user GPU launchers.
+.SH SAFETY
+The program only deletes or moves folders inside a fixed allow-list of
+per-user data directories. It refuses symlinked or shared paths and asks for
+confirmation before each destructive action. Privileged commands are resolved
+from root-owned system directories before they are passed to
+.BR pkexec (1).
+.SH SEE ALSO
+.BR snap (8),
+.BR apt (8),
+.BR pkexec (1),
+.BR desktop-file-validate (1)
