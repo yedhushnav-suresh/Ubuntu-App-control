@@ -66,8 +66,8 @@ sudo apt install build-essential pkg-config libgtk-4-dev \
 ## Install for the current user
 
 ```bash
-git clone https://github.com/your-account/ubuntu-app-control.git
-cd ubuntu-app-control
+git clone https://github.com/yedhushnav-suresh/Ubuntu-App-control.git
+cd Ubuntu-App-control
 ./install.sh
 ```
 
